@@ -1,0 +1,51 @@
+#==============SPRING===================
+spring:
+  profiles:
+    active: ${SPRING_ACTIVE_PROFILE:dev}
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  main:
+    allow-bean-definition-overriding: true
+  web:
+    resources:
+      add-mappings: true
+
+
+    # =============SERVER==================
+server:
+  port: ${PORT:5010}
+  servlet:
+    context-path: ${CONTEXT_PATH:}
+    # ============API===================
+api:
+  url-domain: ${APP_URL_DOMAIN:http://localhost:5008${server.servlet.context-path}}
+  module-name: rentanitem
+  version: 1.0
+  basepath-api: /api/v1
+
+
+# ============ACTUATOR===================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+---
+file:
+  upload-dir: uploads
+  upload-dir-tmp: uploads/tmp
+  working-dir: uploads
+
+info:
+  root-dir: ${user.dir}
+
+---
+spring:
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+
