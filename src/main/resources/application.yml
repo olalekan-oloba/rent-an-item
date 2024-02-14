@@ -49,3 +49,7 @@ spring:
       max-file-size: -1
       max-request-size: -1
 
+payment-module:
+  paystack:
+    secretKey: sk_test_95e1da87ef751918e03ed9ddb14fdf134c9fcdfb
+    baseUrl: https://api.paystack.co

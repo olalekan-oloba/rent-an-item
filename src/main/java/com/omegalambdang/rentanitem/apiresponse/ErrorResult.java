@@ -1,5 +1,6 @@
 package com.omegalambdang.rentanitem.apiresponse;
 
+import com.omegalambdang.rentanitem.validator.ValidationFieldError;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,8 +10,5 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public class ErrorResult {
-    private final List<ApiValidationError> fieldErrors = new ArrayList<>();
-    public ErrorResult(String field, String message){
-        this.fieldErrors.add(new ApiValidationError(field, message));
-    }
+    private final List<ValidationFieldError> fieldErrors = new ArrayList<>();
 }
